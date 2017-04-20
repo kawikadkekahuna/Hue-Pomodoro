@@ -1,5 +1,6 @@
 // @flow
-import { lightState } from "node-hue-api";
+import { REHYDRATE } from "redux-persist/constants";
+import { nupnpSearch, HueApi, lightState } from "node-hue-api";
 import {
   DISCOVER_LIGHTS,
   SET_HUE_CONFIG,
@@ -65,7 +66,7 @@ function setHueApi(state, api) {
   });
 }
 
-function setHueGroups(state, rroups) {
+function setHueGroups(state, groups) {
   return Object.assign(state, {
     groups
   });
@@ -79,6 +80,20 @@ function setHueLights(state, lights) {
 
 export default function hue(state: initialState = {}, action: actionType) {
   switch (action.type) {
+    case REHYDRATE:
+      const api = JSON.parse(localStorage.getItem("api"));
+      const host = localStorage.getItem("host");
+      const username = localStorage.getItem("id");
+      if (host && username) {
+        const api = new HueApi(host, username);
+        const lights = JSON.parse(localStorage.getItem("lights"));
+        return {
+          ...state,
+          api,
+          lights
+        };
+      }
+      return state;
     case DISCOVER_LIGHTS:
       return discoverLights(state, action.data);
     case SET_HUE_API:

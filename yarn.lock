@@ -5012,7 +5012,7 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lodash-es@^4.2.0, lodash-es@^4.2.1:
+lodash-es@^4.17.4, lodash-es@^4.2.0, lodash-es@^4.2.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.4.tgz#dcc1d7552e150a0640073ba9cb31d70f032950e7"
 
@@ -6537,6 +6537,18 @@ react-hot-loader@3.0.0-beta.6:
     redbox-react "^1.2.5"
     source-map "^0.4.4"
 
+react-notification-system-redux@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/react-notification-system-redux/-/react-notification-system-redux-1.0.11.tgz#f59ca6c817b95a18687ced02eb6e1c4e721b807e"
+  dependencies:
+    react-notification-system "^0.2.7"
+
+react-notification-system@^0.2.7:
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/react-notification-system/-/react-notification-system-0.2.13.tgz#59b4778b6befd950e9075738a7f61122afaa150c"
+  dependencies:
+    object-assign "^4.0.1"
+
 react-proxy@^1.1.7:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/react-proxy/-/react-proxy-1.1.8.tgz#9dbfd9d927528c3aa9f444e4558c37830ab8c26a"
@@ -6722,6 +6734,14 @@ redux-logger@^3.0.1:
   resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-3.0.1.tgz#ae8ae4c3c55ed3dd7aa31509f0856c5d3751057a"
   dependencies:
     deep-diff "0.3.4"
+
+redux-persist@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-4.6.0.tgz#3994793d5f2f38bf02591c9e693e16bf8eae2728"
+  dependencies:
+    json-stringify-safe "^5.0.1"
+    lodash "^4.17.4"
+    lodash-es "^4.17.4"
 
 redux-thunk@^2.2.0:
   version "2.2.0"

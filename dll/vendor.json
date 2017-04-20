@@ -1905,6 +1905,10 @@
       "id": "./node_modules/json-stable-stringify/index.js",
       "meta": {}
     },
+    "./node_modules/json-stringify-safe/stringify.js": {
+      "id": "./node_modules/json-stringify-safe/stringify.js",
+      "meta": {}
+    },
     "./node_modules/json5/lib/json5.js": {
       "id": "./node_modules/json5/lib/json5.js",
       "meta": {}
@@ -2347,8 +2351,8 @@
       "id": "./node_modules/lodash/_listCacheClear.js",
       "meta": {}
     },
-    "./node_modules/lodash/_listCacheDelete.js": {
-      "id": "./node_modules/lodash/_listCacheDelete.js",
+    "./node_modules/ajv/lib/ajv.js": {
+      "id": "./node_modules/ajv/lib/ajv.js",
       "meta": {}
     },
     "./node_modules/lodash/_listCacheGet.js": {
@@ -2483,8 +2487,8 @@
       "id": "./node_modules/lodash/constant.js",
       "meta": {}
     },
-    "./node_modules/ajv/lib/ajv.js": {
-      "id": "./node_modules/ajv/lib/ajv.js",
+    "./node_modules/lodash/create.js": {
+      "id": "./node_modules/lodash/create.js",
       "meta": {}
     },
     "./node_modules/lodash/eq.js": {
@@ -3819,6 +3823,46 @@
       "id": "./node_modules/react-hot-loader/lib/index.js",
       "meta": {}
     },
+    "./node_modules/react-notification-system-redux/lib/actions.js": {
+      "id": "./node_modules/react-notification-system-redux/lib/actions.js",
+      "meta": {}
+    },
+    "./node_modules/react-notification-system-redux/lib/const.js": {
+      "id": "./node_modules/react-notification-system-redux/lib/const.js",
+      "meta": {}
+    },
+    "./node_modules/react-notification-system-redux/lib/notifications.js": {
+      "id": "./node_modules/react-notification-system-redux/lib/notifications.js",
+      "meta": {}
+    },
+    "./node_modules/react-notification-system-redux/lib/reducer.js": {
+      "id": "./node_modules/react-notification-system-redux/lib/reducer.js",
+      "meta": {}
+    },
+    "./node_modules/react-notification-system/dist/NotificationContainer.js": {
+      "id": "./node_modules/react-notification-system/dist/NotificationContainer.js",
+      "meta": {}
+    },
+    "./node_modules/react-notification-system/dist/NotificationItem.js": {
+      "id": "./node_modules/react-notification-system/dist/NotificationItem.js",
+      "meta": {}
+    },
+    "./node_modules/react-notification-system/dist/NotificationSystem.js": {
+      "id": "./node_modules/react-notification-system/dist/NotificationSystem.js",
+      "meta": {}
+    },
+    "./node_modules/react-notification-system/dist/constants.js": {
+      "id": "./node_modules/react-notification-system/dist/constants.js",
+      "meta": {}
+    },
+    "./node_modules/react-notification-system/dist/helpers.js": {
+      "id": "./node_modules/react-notification-system/dist/helpers.js",
+      "meta": {}
+    },
+    "./node_modules/react-notification-system/dist/styles.js": {
+      "id": "./node_modules/react-notification-system/dist/styles.js",
+      "meta": {}
+    },
     "./node_modules/react-redux/es/components/Provider.js": {
       "id": "./node_modules/react-redux/es/components/Provider.js",
       "meta": {
@@ -4484,6 +4528,103 @@
     "./node_modules/redux-batched-actions/lib/index.js": {
       "id": "./node_modules/redux-batched-actions/lib/index.js",
       "meta": {}
+    },
+    "./node_modules/redux-persist/es/autoRehydrate.js": {
+      "id": "./node_modules/redux-persist/es/autoRehydrate.js",
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "default"
+      ]
+    },
+    "./node_modules/redux-persist/es/constants.js": {
+      "id": "./node_modules/redux-persist/es/constants.js",
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "KEY_PREFIX",
+        "REHYDRATE"
+      ]
+    },
+    "./node_modules/redux-persist/es/createPersistor.js": {
+      "id": "./node_modules/redux-persist/es/createPersistor.js",
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "default"
+      ]
+    },
+    "./node_modules/redux-persist/es/createTransform.js": {
+      "id": "./node_modules/redux-persist/es/createTransform.js",
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "default"
+      ]
+    },
+    "./node_modules/redux-persist/es/defaults/asyncLocalStorage.js": {
+      "id": "./node_modules/redux-persist/es/defaults/asyncLocalStorage.js",
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "default"
+      ]
+    },
+    "./node_modules/redux-persist/es/getStoredState.js": {
+      "id": "./node_modules/redux-persist/es/getStoredState.js",
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "default"
+      ]
+    },
+    "./node_modules/redux-persist/es/index.js": {
+      "id": "./node_modules/redux-persist/es/index.js",
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "autoRehydrate",
+        "createPersistor",
+        "createTransform",
+        "getStoredState",
+        "persistStore",
+        "purgeStoredState",
+        "storages"
+      ]
+    },
+    "./node_modules/redux-persist/es/persistStore.js": {
+      "id": "./node_modules/redux-persist/es/persistStore.js",
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "default"
+      ]
+    },
+    "./node_modules/redux-persist/es/purgeStoredState.js": {
+      "id": "./node_modules/redux-persist/es/purgeStoredState.js",
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "default"
+      ]
+    },
+    "./node_modules/redux-persist/es/utils/isStatePlainEnough.js": {
+      "id": "./node_modules/redux-persist/es/utils/isStatePlainEnough.js",
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "default"
+      ]
     },
     "./node_modules/redux-thunk/lib/index.js": {
       "id": "./node_modules/redux-thunk/lib/index.js",
@@ -5373,8 +5514,8 @@
       "id": "./node_modules/ajv/lib/dotjs/format.js",
       "meta": {}
     },
-    "./node_modules/lodash/create.js": {
-      "id": "./node_modules/lodash/create.js",
+    "./node_modules/lodash/_listCacheDelete.js": {
+      "id": "./node_modules/lodash/_listCacheDelete.js",
       "meta": {}
     }
   }
