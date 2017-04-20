@@ -1,14 +1,13 @@
 // @flow
-import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
-import styles from './Home.css';
+import React, { Component, PropTypes } from "react";
+import { Link } from "react-router";
+import styles from "./Home.css";
 
 export default class HueConfig extends Component {
-  static propTypes = {
-  };
+  static propTypes = {};
 
   componentWillMount() {
-    console.log('mounted');
+    console.log("mounted");
   }
 
   render() {

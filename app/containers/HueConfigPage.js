@@ -1,7 +1,7 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { initHueConfig } from '../actions/hue';
-import HueConfig from '../components/HueConfig';
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { initHueConfig } from "../actions/hue";
+import HueConfig from "../components/HueConfig";
 
 function mapStateToProps(state) {
   return {
@@ -10,9 +10,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    initHueConfig
-  }, dispatch);
+  return bindActionCreators(
+    {
+      initHueConfig
+    },
+    dispatch
+  );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HueConfig);
