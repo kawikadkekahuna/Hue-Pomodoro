@@ -1,66 +1,79 @@
 // @flow
-import moment from 'moment';
-import { lightState } from 'node-hue-api';
-import React, { Component } from 'react';
-import { Link } from 'react-router';
-import styles from './Home.css';
+import moment from "moment";
+import { lightState } from "node-hue-api";
+import React, { Component } from "react";
+import { Link } from "react-router";
+import styles from "./Home.css";
 
+const ONE_SECOND = 1000;
 
 export default class Pomodoro extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      timeTillFinish: 5,
+      timeTillFinish: this.props.workDuration,
       isCountingDown: false,
       isWorkMode: true
     };
   }
 
-  startTimer = () => {
+  toggleRestPeriod = () => {
+    this.props.requestPomodoroRestLight();
+    return this.setState(() => ({
+      timeTillFinish: this.props.restDuration,
+      isWorkMode: false
+    }));
+  };
+
+  toggleWorkPeriod = () => {
     this.props.requestPomodoroWorkLight();
-    const intervalId = setInterval(() => {
-      if (this.state.timeTillFinish === 0) {
-        if (this.state.isWorkMode) {
-          this.props.requestPomodoroRestLight();
-          return this.setState(() => ({
-            timeTillFinish: 3,
-            isWorkMode: false
-          }));
-        } else {
-          this.props.requestPomodoroWorkLight();
-          return this.setState(() => ({
-            timeTillFinish: 5,
-            isWorkMode: true
-          }));
-        }
+    return this.setState(() => ({
+      timeTillFinish: this.props.workDuration,
+      isWorkMode: true
+    }));
+  };
+
+  tick = () => {
+    if (this.state.timeTillFinish === 0) {
+      if (this.state.isWorkMode) {
+        this.toggleRestPeriod();
+      } else {
+        this.toggleWorkPeriod();
       }
-      return this.setState(() => ({
-        isCountingDown: true,
-        intervalId,
-        timeTillFinish: this.state.timeTillFinish - 1
-      }));
-    }, 1000);
-  }
+    }
+    return this.setState(() => ({
+      isCountingDown: true,
+      timeTillFinish: this.state.timeTillFinish - 1
+    }));
+  };
+
+  startTimer = () => {
+    const intervalId = setInterval(this.tick, ONE_SECOND);
+    return this.setState(() => ({
+      intervalId
+    }));
+  };
 
   pauseTimer = () => {
-    this.setState((nextState) => {
+    this.setState(nextState => {
       clearInterval(nextState.intervalId);
       return {
         isCountingDown: false,
         intervalId: null
       };
     });
-  }
+  };
 
   resetTimer = () => {
-    this.setState((nextState) => {
+    this.setState(nextState => {
       return {
-        timeTillFinish: 5,
+        timeTillFinish: this.props.workDuration,
         isCountingDown: false,
-        intervalId: null
+        intervalId: null,
+        isWorkMode: true
       };
     });
-  }
+  };
 
   render() {
     return (

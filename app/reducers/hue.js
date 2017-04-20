@@ -1,5 +1,5 @@
 // @flow
-import { lightState } from 'node-hue-api';
+import { lightState } from "node-hue-api";
 import {
   DISCOVER_LIGHTS,
   SET_HUE_CONFIG,
@@ -10,44 +10,44 @@ import {
   REQUEST_POMODORO_REST_LIGHT,
   REQUEST_LIGHTS_OFF,
   REQUEST_LIGHTS_ON
-} from '../actions/hue';
+} from "../actions/hue";
 
 type actionType = {
   type: string
 };
 
-type initialState = {
-
-};
+type initialState = {};
 
 function requestPomodoroWorkLight(state) {
-  state.lights.forEach((light) => {
-    state.api.setLightState(light.id, { rgb: [14, 139, 34] });
+  state.lights.forEach(light => {
+    state.api.setLightState(light.id, { rgb: [255, 255, 255] });
   });
   return state;
 }
 
 function requestPomodoroRestLight(state) {
-  state.lights.forEach((light) => {
-    state.api.setLightState(light.id, { rgb: [200, 255, 255] });
+  state.lights.forEach(light => {
+    state.api.setLightState(light.id, { rgb: [150, 123, 182] });
   });
   return state;
 }
 
 function requestLightsOn(state) {
-  state.lights.forEach((light) => {
-    state.api.setLightState(light.id, { on: true });
+  state.lights.forEach(async light => {
+    await state.api.setLightState(light.id, { on: true });
   });
   return state;
 }
 
 function requestLightsOff(state) {
-  state.api.setLightState(2, { off: true });
-  state.api.setLightState(3, { off: true });
+  state.lights.forEach(light => {
+    state.api.setLightState(light.id, { on: false });
+  });
+  return state;
 }
 
 function discoverLights(state, lights) {
-  state.api.lights('2').off();
+  state.api.lights("2").off();
   return Object.assign(state, {
     lights
   });
