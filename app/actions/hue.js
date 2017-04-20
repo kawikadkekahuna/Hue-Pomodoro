@@ -1,9 +1,11 @@
 // @flow
 import { nupnpSearch, HueApi, lightState } from "node-hue-api";
 import { batchActions } from "redux-batched-actions";
+import Notifications from "react-notification-system-redux";
 
 export const INIT_HUE_CONFIG = "INIT_HUE_CONFIG";
 export const FIND_HUE_BRIDGE = "FIND_HUE_BRIDGE";
+export const INIT_HUE_CONFIG_FAILED = "INIT_HUE_CONFIG_FAILED";
 export const SET_HUE_API = "SET_HUE_API";
 export const SET_HUE_CONFIG = "SET_HUE_CONFIG";
 export const SET_HUE_GROUPS = "SET_HUE_GROUPS";
@@ -56,7 +58,13 @@ export function endPomodoroTimer() {
   };
 }
 
-function _findBridge(dispatch) {
+function _setupHueFailed() {
+  return {
+    type: INIT_HUE_CONFIG_FAILED
+  };
+}
+
+function _findBridge() {
   return {
     type: FIND_HUE_BRIDGE
   };
@@ -75,32 +83,46 @@ function findBridge() {
 }
 
 export function initHueConfig() {
-  return dispatch => {
-    dispatch(_findBridge(dispatch));
-    findBridge().then(bridge => {
+  return async dispatch => {
+    dispatch(_findBridge());
+    try {
+      const bridge = await findBridge();
       const hueCredentials = {
         host: bridge.ipaddress,
-        username: localStorage.getItem("id") || "homebase"
+        username: localStorage.getItem("id")
       };
-      console.log("bridge", bridge);
       const api = new HueApi(hueCredentials.host, hueCredentials.username);
-      api
-        .registerUser(hueCredentials.host, hueCredentials.username)
-        .then(result => {
-          console.log("result", result);
-          localStorage.setItem("id", result);
-        });
-      api
-        .lights()
-        .then(({ lights }) => {
-          console.log("lights", lights);
-          dispatch({ type: SET_HUE_API, data: api });
-          dispatch({ type: SET_HUE_CONFIG, data: hueCredentials });
-          dispatch({ type: SET_HUE_LIGHTS, data: lights });
+      dispatch({ type: SET_HUE_API, data: api });
+      if (!hueCredentials.username) {
+        const newUser = await api.registerUser(
+          hueCredentials.host,
+          hueCredentials.username
+        );
+        localStorage.setItem("host", bridge.ipaddress);
+        localStorage.setItem("id", newUser);
+      }
+      const { lights } = await api.lights();
+      dispatch({ type: SET_HUE_CONFIG, data: hueCredentials });
+      dispatch({ type: SET_HUE_LIGHTS, data: lights });
+      localStorage.setItem("lights", JSON.stringify(lights));
+      dispatch(
+        Notifications.success({
+          title: "Yay!",
+          message: "Successfully registered Hue Device!",
+          position: "tr",
+          autoDismiss: 3
         })
-        .catch(error => {
-          console.log("error", error);
-        });
-    });
+      );
+    } catch (error) {
+      dispatch(_setupHueFailed());
+      dispatch(
+        Notifications.error({
+          title: "Oops, something went wrong",
+          message: error.message,
+          position: "tr",
+          autoDismiss: 3
+        })
+      );
+    }
   };
 }

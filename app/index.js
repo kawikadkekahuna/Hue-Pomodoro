@@ -1,4 +1,5 @@
 import React from "react";
+import { persistStore } from "redux-persist";
 import { render } from "react-dom";
 import { hashHistory } from "react-router";
 import { AppContainer } from "react-hot-loader";
@@ -8,6 +9,7 @@ import configureStore from "./store/configureStore";
 import "./app.global.css";
 
 const store = configureStore();
+persistStore(store);
 const history = syncHistoryWithStore(hashHistory, store);
 
 render(
