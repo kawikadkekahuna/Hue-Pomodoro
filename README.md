@@ -27,5 +27,5 @@ $ npm install # or yarn
 #### Launch dev environment
 
 ```bash
-$ npm run dev
+$npm run dev
 ```
