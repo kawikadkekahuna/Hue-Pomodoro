@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component has correct default state 1`] = `
+<glamorous.Div
+  alignItems="center"
+  border="1px solid #FFF"
+  borderRadius={2}
+  css={
+    Object {
+      ":active": Object {
+        "boxShadow": "inset 0 0 20px 0 white",
+        "fontWeight": "bold",
+      },
+      ":hover": Object {
+        "backgroundColor": "orange",
+        "transition": "background .25s ease-in-out",
+      },
+    }
+  }
+  cursor="default"
+  display="flex"
+  height={50}
+  justifyContent="center"
+  margin="auto"
+  width={150}
+>
+  <glamorous.A
+    color="#FFF"
+  />
+</glamorous.Div>
+`;
+
+exports[`Button Component has correct state when disabled 1`] = `
+<glamorous.Div
+  alignItems="center"
+  border="1px solid #333"
+  borderRadius={2}
+  css={Object {}}
+  cursor="pointer"
+  display="flex"
+  height={50}
+  justifyContent="center"
+  margin="auto"
+  width={150}
+>
+  <glamorous.A
+    color="#333"
+  />
+</glamorous.Div>
+`;
