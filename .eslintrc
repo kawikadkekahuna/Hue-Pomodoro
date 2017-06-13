@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "prettier"
+  ],
+  sourceType: "module" ,
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 0,
+    "define-flow-type": 0,
+    "prettier/prettier": "error"
+  }
+}
