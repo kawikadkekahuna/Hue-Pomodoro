@@ -5,8 +5,7 @@
       "useBuiltIns": true
     }],
     "stage-0",
-    "react",
-     "es2015"
+    "react"
   ],
   "plugins": ["add-module-exports"],
   "env": {
