@@ -1,9 +1,11 @@
+// @flow
+
 import glamorous from "glamorous";
 import React, { Component } from "react";
 
-const { H1, Div, A } = glamorous;
+const { Div, A } = glamorous;
 
-export default function Button({ className, onClick, text, isDisabled }) {
+function Button({ className, onClick, text, isDisabled }: ButtonProps) {
   return (
     <Div
       height={50}
@@ -37,3 +39,12 @@ export default function Button({ className, onClick, text, isDisabled }) {
     </Div>
   );
 }
+
+type ButtonProps = {
+  className: string | void,
+  onClick: any,
+  text: string,
+  isDisabled: boolean | void
+};
+
+export default Button;

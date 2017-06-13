@@ -2,6 +2,7 @@
 import { nupnpSearch, HueApi, lightState } from "node-hue-api";
 import { batchActions } from "redux-batched-actions";
 import Notifications from "react-notification-system-redux";
+import type { Dispatch } from "../types";
 
 export const INIT_HUE_CONFIG = "INIT_HUE_CONFIG";
 export const FIND_HUE_BRIDGE = "FIND_HUE_BRIDGE";
@@ -65,7 +66,7 @@ function findBridge() {
 }
 
 export function initHueConfig() {
-  return async dispatch => {
+  return async (dispatch: Dispatch) => {
     dispatch(_findBridge());
     try {
       const bridge = await findBridge();

@@ -3,7 +3,6 @@ import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 import Button from "../../app/components/Button";
-console.log(renderer);
 
 describe("Button Component", () => {
   test("has correct default state", () => {
