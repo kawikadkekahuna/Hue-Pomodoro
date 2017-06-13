@@ -21,6 +21,7 @@ type initialState = {};
 
 function requestPomodoroWorkLight(state) {
   state.lights.forEach(light => {
+    console.log("setting white");
     state.api.setLightState(light.id, { rgb: [255, 255, 255] });
   });
   return state;
@@ -28,7 +29,9 @@ function requestPomodoroWorkLight(state) {
 
 function requestPomodoroRestLight(state) {
   state.lights.forEach(light => {
-    state.api.setLightState(light.id, { rgb: [150, 123, 182] });
+    console.log("setting lavendar");
+    console.log("light", light);
+    state.api.setLightState(light.id, { rgb: [230, 30, 250] });
   });
   return state;
 }

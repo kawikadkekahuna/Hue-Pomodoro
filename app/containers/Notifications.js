@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 // Actions
 import { connect } from "react-redux";
 // Components
@@ -15,10 +15,6 @@ const style = {
 };
 
 class NotificationsContainer extends Component {
-  static propTypes = {
-    notifications: PropTypes.array
-  };
-
   render() {
     return (
       <Notifications notifications={this.props.notifications} style={style} />

@@ -5,8 +5,8 @@ body {
   color: white;
   height: 100vh;
   background-color: #232c39;
-  background-image: linear-gradient(45deg, rgba(0, 216, 255, 0.5) 10%, rgba(0, 1, 127, 0.7));
-  font-family: Arial, Helvetica, Helvetica Neue, serif;
+  background-image:linear-gradient(to bottom,#333 0%,#333 17%,#2f2f2f 42%,#272727 64%,#151515 100%);
+  font-family: 'Orbitron', Arial, Helvetica, Helvetica Neue, serif;
   overflow-y: hidden;
 }
 
@@ -28,7 +28,6 @@ li {
 
 a {
   color: white;
-  opacity: 0.75;
   text-decoration: none;
 }
 
@@ -37,3 +36,4 @@ a:hover {
   text-decoration: none;
   cursor: pointer;
 }
+

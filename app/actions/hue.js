@@ -15,8 +15,6 @@ export const REQUEST_LIGHTS_ON = "REQUEST_LIGHTS_ON";
 export const REQUEST_LIGHTS_OFF = "REQUEST_LIGHTS_OFF";
 export const REQUEST_POMODORO_REST_LIGHT = "REQUEST_POMODORO_REST_LIGHT";
 export const REQUEST_POMODORO_WORK_LIGHT = "REQUEST_POMODORO_WORK_LIGHT";
-export const START_POMODORO = "START_POMODORO";
-export const END_POMODORO = "END_POMODORO";
 
 export function requestLightsOn() {
   return {
@@ -39,22 +37,6 @@ export function requestPomodoroWorkLight() {
 export function requestPomodoroRestLight() {
   return {
     type: REQUEST_POMODORO_REST_LIGHT
-  };
-}
-
-function _startPomodoroTimer() {
-  return {
-    type: START_POMODORO
-  };
-}
-
-export function startPomodoroTimer() {
-  return dispatch => {};
-}
-
-export function endPomodoroTimer() {
-  return {
-    type: END_POMODORO
   };
 }
 
