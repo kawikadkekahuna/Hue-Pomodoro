@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {
   requestLightsOn,
   requestLightsOff,
   requestPomodoroWorkLight,
-  requestPomodoroRestLight
-} from "../actions/hue";
-import Pomodoro from "../components/Pomodoro";
+  requestPomodoroRestLight,
+} from '../actions/hue';
+import Pomodoro from '../components/Pomodoro';
 
 const ONE_SECOND = 1000;
 
@@ -18,7 +18,7 @@ class PomodoroContainer extends Component {
       timeTillFinish: this.props.workDuration,
       isCountingDown: false,
       isWorkMode: true,
-      tickInitiated: false
+      tickInitiated: false,
     };
   }
 
@@ -26,7 +26,7 @@ class PomodoroContainer extends Component {
     this.props.requestPomodoroRestLight();
     this.setState(() => ({
       timeTillFinish: this.props.restDuration,
-      isWorkMode: false
+      isWorkMode: false,
     }));
   };
 
@@ -34,7 +34,7 @@ class PomodoroContainer extends Component {
     this.props.requestPomodoroWorkLight();
     this.setState(() => ({
       timeTillFinish: this.props.workDuration,
-      isWorkMode: true
+      isWorkMode: true,
     }));
   };
 
@@ -49,7 +49,7 @@ class PomodoroContainer extends Component {
     if (this.state.isCountingDown) {
       this.setState(() => ({
         isCountingDown: true,
-        timeTillFinish: --this.state.timeTillFinish
+        timeTillFinish: --this.state.timeTillFinish,
       }));
     }
   };
@@ -59,7 +59,7 @@ class PomodoroContainer extends Component {
     this.setState(() => ({
       intervalId,
       isCountingDown: true,
-      tickInitiated: true
+      tickInitiated: true,
     }));
   };
 
@@ -67,25 +67,25 @@ class PomodoroContainer extends Component {
     clearInterval(this.state.intervalId);
     this.setState({
       isCountingDown: false,
-      intervalId: null
+      intervalId: null,
     });
   };
 
   getTickState = () => {
     return !this.state.intervalId && !this.state.tickInitiated
-      ? "Start Timer"
-      : this.state.intervalId && this.state.isCountingDown ? "Pause" : "Resume";
+      ? 'Start Timer'
+      : this.state.intervalId && this.state.isCountingDown ? 'Pause' : 'Resume';
   };
 
   getPomodoroEventHandler = () => {
     switch (this.getTickState()) {
-      case "Pause": {
+      case 'Pause': {
         return this.pauseTimer;
       }
-      case "Resume": {
+      case 'Resume': {
         return this.toggleTimer;
       }
-      case "Start Timer": {
+      case 'Start Timer': {
         return this.startTimer;
       }
       default: {
@@ -100,7 +100,7 @@ class PomodoroContainer extends Component {
       isCountingDown: false,
       intervalId: null,
       isWorkMode: true,
-      tickInitiated: false
+      tickInitiated: false,
     });
   };
 
@@ -111,7 +111,7 @@ class PomodoroContainer extends Component {
       const intervalId = setInterval(this.tick, ONE_SECOND);
       this.setState({
         intervalId,
-        isCountingDown: true
+        isCountingDown: true,
       });
     }
   };
@@ -132,7 +132,7 @@ class PomodoroContainer extends Component {
 function mapStateToProps(state) {
   return {
     restDuration: 500,
-    workDuration: 1500
+    workDuration: 1500,
   };
 }
 
@@ -142,7 +142,7 @@ function mapDispatchToProps(dispatch) {
       requestLightsOn,
       requestLightsOff,
       requestPomodoroWorkLight,
-      requestPomodoroRestLight
+      requestPomodoroRestLight,
     },
     dispatch
   );

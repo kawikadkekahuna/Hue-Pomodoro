@@ -1,12 +1,9 @@
+import type { Map } from 'immutable';
+
 export type actionType = {
-  type: string
+  type: string,
 };
 
 export type Dispatch = (action: Action) => void;
 
-export type pomodoroInitialState = {
-  timeTillFinish: number,
-  isCountingDown: boolean,
-  isWorkMode: boolean,
-  tickInitiated: boolean
-};
+export type pomodoroInitialState = Map;

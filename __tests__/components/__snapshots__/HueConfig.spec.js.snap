@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HueConfig Component has correct default state 1`] = `
+<div>
+  <Link
+    onlyActiveOnIndex={false}
+    style={Object {}}
+    to="/pomodoro"
+  >
+    <NavigationArrowBack />
+  </Link>
+  <button>
+    Detect config
+  </button>
+</div>
+`;
+
+exports[`HueConfig Component has correct state when disabled 1`] = `
+<div>
+  <Link
+    onlyActiveOnIndex={false}
+    style={Object {}}
+    to="/pomodoro"
+  >
+    <NavigationArrowBack />
+  </Link>
+  <button>
+    Detect config
+  </button>
+</div>
+`;

@@ -21,6 +21,7 @@ export default class Pomodoro extends Component {
           <Timer time={this.props.timeTillFinish} />
           <Div display="flex" justifyContent="center" alignItems="center">
             <Button
+              className="pomodoroToggle"
               onClick={() => {
                 this.props.handlePomodoroEvent();
               }}

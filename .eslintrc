@@ -1,12 +1,11 @@
 {
-  "plugins": [
-    "prettier"
-  ],
-  sourceType: "module" ,
-  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "globals": {
+    "describe": true,
+    "expect": true,
+    "test": true
+  },
   "rules": {
-    "strict": 0,
-    "define-flow-type": 0,
-    "prettier/prettier": "error"
+    "react/jsx-filename-extension": 0
   }
 }

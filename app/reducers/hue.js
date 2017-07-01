@@ -1,4 +1,5 @@
 // @flow
+
 import { REHYDRATE } from "redux-persist/constants";
 import { nupnpSearch, HueApi, lightState } from "node-hue-api";
 import {

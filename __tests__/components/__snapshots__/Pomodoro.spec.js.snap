@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pomodoro Component can handle pomodoro event 1`] = `
+<div>
+  <glamorous.Div
+    position="absolute"
+    right="0"
+    top="0"
+  >
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/hue-config"
+    >
+      <ActionSettings />
+    </Link>
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/hue-config"
+    >
+      <ActionLightbulbOutline />
+    </Link>
+  </glamorous.Div>
+  <glamorous.Div>
+    <Timer />
+    <glamorous.Div
+      alignItems="center"
+      display="flex"
+      justifyContent="center"
+    >
+      <Button
+        className="pomodoroToggle"
+        onClick={[Function]}
+      />
+      <Button
+        text="Reset"
+      />
+    </glamorous.Div>
+  </glamorous.Div>
+</div>
+`;
+
+exports[`Pomodoro Component has correct default state 1`] = `
+<div>
+  <glamorous.Div
+    position="absolute"
+    right="0"
+    top="0"
+  >
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/hue-config"
+    >
+      <ActionSettings />
+    </Link>
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/hue-config"
+    >
+      <ActionLightbulbOutline />
+    </Link>
+  </glamorous.Div>
+  <glamorous.Div>
+    <Timer />
+    <glamorous.Div
+      alignItems="center"
+      display="flex"
+      justifyContent="center"
+    >
+      <Button
+        className="pomodoroToggle"
+        onClick={[Function]}
+      />
+      <Button
+        text="Reset"
+      />
+    </glamorous.Div>
+  </glamorous.Div>
+</div>
+`;

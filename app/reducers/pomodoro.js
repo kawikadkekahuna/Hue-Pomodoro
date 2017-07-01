@@ -1,20 +1,16 @@
-// @flow
-import type { actionType, pomodoroInitialState } from "../types/index";
+import { Map } from 'immutable';
 
-export const START_POMODORO = "START_POMODORO";
-export const END_POMODORO = "END_POMODORO";
+export const START_POMODORO = 'START_POMODORO';
+export const END_POMODORO = 'END_POMODORO';
 
-const initialState = {
+const initialState = new Map({
   timeTillFinish: 15,
   isCountingDown: false,
   isWorkMode: true,
-  tickInitiated: false
-};
+  tickInitiated: false,
+});
 
-export default function pomodoro(
-  state: pomodoroInitialState = initialState,
-  action: actionType
-) {
+export default function pomodoro(state = initialState, action) {
   switch (action.type) {
     default:
       return state;
